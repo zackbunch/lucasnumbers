@@ -72,4 +72,4 @@ def lucas(k,t,maxTimeout):
 
 # driver code
 lucas.counter = 0
-lucas(35,time.time(),2)
+lucas(21,time.time(),2)

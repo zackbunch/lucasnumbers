@@ -17,7 +17,7 @@
 # lucas 6 is 18.000000000000004 -- i.e., 18 -- with 2 digits
 # lucas 7 is 29.000000000000007 -- i.e., 29 -- with 2 digits
 
-import math
+
 def lucas(k):
     sqrt5 = pow(5,0.5)
     term1, term2 = (1+sqrt5)/2,(1-sqrt5)/2
@@ -38,3 +38,4 @@ def callLucas(x,howMany):
 
 
 callLucas(8,20)
+# callLucas(1470,1480)

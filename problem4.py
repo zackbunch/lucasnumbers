@@ -18,8 +18,6 @@ def lucas(n):
     for i in range(n):
         a, b = b, a + b  # Generate nth and nth + 1 value of the Lucas Numbers
 
-        # print(i+1,a)
-
     return a
 
 def callLucas(x,howMany):
@@ -41,5 +39,5 @@ def callLucas(x,howMany):
         else:
             print('lucas {} is {} - computed in {:.4f}'.format(i,_lucas,finish-start))
 
-# callLucas(0,21)
-callLucas(82000,82900)
+callLucas(0,21)
+# callLucas(82000,82300)

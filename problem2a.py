@@ -46,4 +46,4 @@ def callLucas(howMany):
             timesCalled = 0
 
 
-callLucas(38)
+callLucas(21)

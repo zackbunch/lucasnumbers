@@ -49,4 +49,4 @@ def callLucas(howMany):
             sys.exit("timeout at lucas {} after 120 seconds".format(i))
 
 lucas.counter = 0
-callLucas(38)
+callLucas(21)
