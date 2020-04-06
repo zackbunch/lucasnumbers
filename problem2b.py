@@ -21,7 +21,7 @@ timesCalled = 0
 
 maxTimeout = 2
 
-def lucas(k):
+def lucas(k,t,maxTimeout):
 
 
     # Error handling
@@ -30,15 +30,16 @@ def lucas(k):
     if not k >= 0:
         raise ValueError("Sorry. {} must be zero or positive.".format(k))
 
-
+    # if (time.time() - t > maxTimeout):
+    #
+    #     sys.exit()
 
 
     def inner_lucas(k): #accepts one argument - the index of the lucas number to compute
 
-        global maxTimeout
-        global timesCalled
-        timesCalled = timesCalled + 1
+
         maxTimeout = 2
+        lucas.counter +=1
         if (k == 0):
             return 2
         elif (k == 1):
@@ -47,23 +48,28 @@ def lucas(k):
 
 
             return inner_lucas(k-1) + inner_lucas(k-2)
-    global timesCalled
+
 
 
     for i in range(k+1):
-        start = datetime.datetime.now()
+        start = time.time()
         _inner_lucas = inner_lucas(i)
-        end = datetime.datetime.now()
+        end = time.time()
         finish = end - start
+        if finish > maxTimeout:
+            sys.exit("timeout at lucas {} after 120 seconds".format(i))
+        elif finish < maxTimeout:
+            print('lucas {} is {} - computed with {} calls in {:.4f} seconds'.format(i,_inner_lucas,lucas.counter,finish))
+            lucas.counter = 0
 
-
-
-
-        print('lucas {} is {} - computed with {} calls in {} seconds'.format(i,_inner_lucas,timesCalled,finish))
-
-        timesCalled = 0
     return inner_lucas(k)
 
 
+
+
+
+
+
 # driver code
-lucas(12)
+lucas.counter = 0
+lucas(35,time.time(),2)

@@ -36,10 +36,14 @@ def callLucas(howMany):
 
 
             finish = time.time()
-
-            print("lucas {} is {} - computed with {} calls  in  {:.4f} seconds".format(
-                i, _lucas,lucas.counter,finish-start))
-            lucas.counter = 0
+            if lucas.counter > 1:
+                print("lucas {} is {} - computed with {} calls  in  {:.4f} seconds".format(
+                    i, _lucas,lucas.counter,finish-start))
+                lucas.counter = 0
+            elif lucas.counter == 1:
+                print("lucas {} is {} - computed with {} call  in  {:.4f} seconds".format(
+                    i, _lucas,lucas.counter,finish-start))
+                lucas.counter = 0
         except Exception as ex:
             # print(str(ex))
             sys.exit("timeout at lucas {} after 120 seconds".format(i))
